@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>at.fh-joanneum.swengb</groupId>
+        <artifactId>master-pom</artifactId>
+        <version>2017-SNAPSHOT</version>
+    </parent>
+    <artifactId>course-material</artifactId>
+    <name>at.fh-joanneum.swengb.course-material</name>
+    <description>Course material for SWENGB 2017</description>
+    <inceptionYear>2017</inceptionYear>
+    <packaging>pom</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pdf-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.github.jeluard</groupId>
+                <artifactId>plantuml-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
