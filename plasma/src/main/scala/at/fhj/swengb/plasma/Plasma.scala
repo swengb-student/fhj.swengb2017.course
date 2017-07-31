@@ -10,6 +10,8 @@ import javafx.stage.Stage
 import scala.util.Random
 
 /**
+  * Simple sinus drawing on a byte array which is displayed via javafx.
+  *
   * Created by lad on 14/07/2017.
   */
 object Plasma {
@@ -22,17 +24,19 @@ object Plasma {
 
 class PlasmaJfxApp extends javafx.application.Application {
 
-  val (width, height, color) = (800, 600, 255 * 255 * 255)
+  val (width, height) = (800, 600)
 
-  val (xs, ys, zs) = (0 to width, 0 to height, 0 until color)
+  val (xs, ys) = (0 until width, 0 until height)
 
-  val a = Array.tabulate(width * height * 3)(i => {
-    i % 3 match {
-      case 0 => Random.nextInt(254).toByte
-      case 1 => Random.nextInt(254).toByte
-      case 2 => Random.nextInt(254).toByte
-    }
-  })
+  val sinTable: Array[Double] = (0 until 180).map(a => Math.sin(a * Math.PI / 180)).toArray
+
+  val (xFac: Double, yFac: Double) = (sinTable.length.toDouble / width, sinTable.length.toDouble * height)
+
+
+  /**
+    * Black it out at the start
+    */
+  val a = Array.tabulate(width * height * 3)(i => 0.toByte)
 
   override def start(primaryStage: Stage): Unit = {
     primaryStage.setTitle("Plasma")
@@ -46,10 +50,10 @@ class PlasmaJfxApp extends javafx.application.Application {
 
 
     new AnimationTimer() {
+
+
       override def handle(now: Long): Unit = {
-
-        for(i <- a.indices) a(i) = Random.nextInt(254).toByte
-
+        applySinus(a)
         drawByteArray(canvas, a)
 
       }
@@ -58,8 +62,24 @@ class PlasmaJfxApp extends javafx.application.Application {
 
   }
 
+  private def applySinus(backingArray: Array[Byte],
+                         sinTable: Array[Double] = sinTable,
+                         colorCount: Int = 255) = {
+    for {x <- xs
+         y <- ys} {
+      val sinIndex = Math.min(sinTable.length - 1, (x * xFac).toInt)
+      val c: Int = (sinTable(sinIndex) * colorCount).toInt
+      backingArray(x * 3 + 0 + y * width * 3) = c.toByte
+      backingArray(x * 3 + 1 + y * width * 3) = c.toByte
+      backingArray(x * 3 + 2 + y * width * 3) = c.toByte
+    }
+  }
 
-  private def drawByteArray(canvas : Canvas, bytes : Array[Byte]) = {
+  private def applyNoise(a: Array[Byte]) = {
+    for (i <- a.indices) a(i) = Random.nextInt(254).toByte
+  }
+
+  private def drawByteArray(canvas: Canvas, bytes: Array[Byte]) = {
     val pxw: PixelWriter = canvas.getGraphicsContext2D.getPixelWriter
     pxw.setPixels(0, 0, width, height, PixelFormat.getByteRgbInstance, bytes, 0, width * 3)
   }
