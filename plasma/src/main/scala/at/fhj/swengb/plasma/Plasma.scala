@@ -24,19 +24,42 @@ object Plasma {
 
 class PlasmaJfxApp extends javafx.application.Application {
 
-  val (width, height) = (800, 600)
+  /**
+    * the width and height of our visual area
+    */
+  val (width, height) = (1024, 768)
 
+  /**
+    * we have 3 color components, thus one line in our backing array is three times as long as the visual 'pixel' area
+    */
+  val backingArrayWidth = width * 3
+
+  /**
+    * ranges for x and y direction
+    */
   val (xs, ys) = (0 until width, 0 until height)
-
-  val sinTable: Array[Double] = (0 until 180).map(a => Math.sin(a * Math.PI / 180)).toArray
-
-  val (xFac: Double, yFac: Double) = (sinTable.length.toDouble / width, sinTable.length.toDouble * height)
 
 
   /**
-    * Black it out at the start
+    * Black visual area out at the start of the program
     */
-  val a = Array.tabulate(width * height * 3)(i => 0.toByte)
+  val backingArray = Array.tabulate(width * height * 3)(i => 0.toByte)
+
+
+  val colorDepth = 255
+
+  /**
+    * precompute sin values to gain some speed (presumably, didn't really measure)
+    */
+  val sinTable: Array[Double] = (0 until 180).map(a => Math.sin(a * Math.PI / 180)).toArray
+
+  /**
+    * scale visual area index to sintable
+    */
+  val (xFac: Double, yFac: Double) = (sinTable.length.toDouble / width, sinTable.length.toDouble / height)
+
+  val state: Array[Int] = Array(0, 0)
+
 
   override def start(primaryStage: Stage): Unit = {
     primaryStage.setTitle("Plasma")
@@ -53,8 +76,8 @@ class PlasmaJfxApp extends javafx.application.Application {
 
 
       override def handle(now: Long): Unit = {
-        applySinus(a)
-        drawByteArray(canvas, a)
+        applySinus(backingArray, sinTable, colorDepth, state)
+        drawByteArray(canvas, backingArray)
 
       }
     }.start()
@@ -62,16 +85,28 @@ class PlasmaJfxApp extends javafx.application.Application {
 
   }
 
-  private def applySinus(backingArray: Array[Byte],
-                         sinTable: Array[Double] = sinTable,
-                         colorCount: Int = 255) = {
+  private def applySinus(backingArray: Array[Byte]
+                         , sinTable: Array[Double] = sinTable
+                         , colorDepth: Int = 255
+                         , state: Array[Int]) = {
+    val moveX = state(0)
+    val moveY = state(1)
+    state(0) = state(0) + 1
+    state(1) = state(1) + 1
+    val superXFac = 1
+    val superYFac = 1
     for {x <- xs
          y <- ys} {
-      val sinIndex = Math.min(sinTable.length - 1, (x * xFac).toInt)
-      val c: Int = (sinTable(sinIndex) * colorCount).toInt
-      backingArray(x * 3 + 0 + y * width * 3) = c.toByte
-      backingArray(x * 3 + 1 + y * width * 3) = c.toByte
-      backingArray(x * 3 + 2 + y * width * 3) = c.toByte
+      val sinXIndex = ((x * xFac * superXFac).toInt + moveX * superXFac) % sinTable.length
+      val sinYIndex = ((y * yFac * superYFac).toInt + moveY * superYFac) % sinTable.length
+
+     // val sinIndex = (sinXIndex + sinYIndex) % sinTable.length
+
+      val c: Int = (sinTable(sinXIndex) * colorDepth).toInt
+
+      backingArray(x * 3 + 0 + y * backingArrayWidth) = c.toByte
+      backingArray(x * 3 + 1 + y * backingArrayWidth) = c.toByte
+      backingArray(x * 3 + 2 + y * backingArrayWidth) = c.toByte
     }
   }
 
@@ -81,6 +116,6 @@ class PlasmaJfxApp extends javafx.application.Application {
 
   private def drawByteArray(canvas: Canvas, bytes: Array[Byte]) = {
     val pxw: PixelWriter = canvas.getGraphicsContext2D.getPixelWriter
-    pxw.setPixels(0, 0, width, height, PixelFormat.getByteRgbInstance, bytes, 0, width * 3)
+    pxw.setPixels(0, 0, width, height, PixelFormat.getByteRgbInstance, bytes, 0, backingArrayWidth)
   }
 }
