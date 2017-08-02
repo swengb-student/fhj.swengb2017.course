@@ -7,6 +7,7 @@ import javafx.scene.image.{PixelFormat, PixelWriter}
 import javafx.scene.{Group, Scene}
 import javafx.stage.Stage
 
+import scala.collection.immutable
 import scala.util.Random
 
 /**
@@ -27,7 +28,7 @@ class PlasmaJfxApp extends javafx.application.Application {
   /**
     * the width and height of our visual area
     */
-  val (width, height) = (1024, 768)
+  val (width, height) = (450, 150)
 
   /**
     * we have 3 color components, thus one line in our backing array is three times as long as the visual 'pixel' area
@@ -37,8 +38,16 @@ class PlasmaJfxApp extends javafx.application.Application {
   /**
     * ranges for x and y direction
     */
-  val (xs, ys) = (0 until width, 0 until height)
+  val (ixs, iys) = (0 until width, 0 until height)
 
+  val (xs, ys) = (ixs.map(_ * 3), iys.map(_ * backingArrayWidth))
+
+  val xPiFac: Double = 2 * Math.PI / width.toDouble
+  val yPiFac: Double = 2 * Math.PI / height.toDouble
+
+  val colXs: immutable.IndexedSeq[Double] = ixs.map(x => xPiFac * x - Math.PI)
+
+  val colYs: immutable.IndexedSeq[Double] = iys.map(y => yPiFac * y - Math.PI)
 
   /**
     * Black visual area out at the start of the program
@@ -46,19 +55,29 @@ class PlasmaJfxApp extends javafx.application.Application {
   val backingArray = Array.tabulate(width * height * 3)(i => 0.toByte)
 
 
-  val colorDepth = 255
+  val colorDepth = 128
 
   /**
     * precompute sin values to gain some speed (presumably, didn't really measure)
     */
-  val sinTable: Array[Double] = (0 until 180).map(a => Math.sin(a * Math.PI / 180)).toArray
+  val sinTable: Array[Double] = {
+    (0 until 180).map(a => Math.sin(a * Math.PI / 180)).toArray
+  }
+
+  /**
+    * precomputed cosinus values, reversing cos not to get negative values at a later computation stage
+    */
+  val cosTable: Array[Double] = {
+    val vs = (0 until 90).map(a => Math.cos(a * Math.PI / 180)).toArray
+    vs ++ vs.reverse
+  }
 
   /**
     * scale visual area index to sintable
     */
   val (xFac: Double, yFac: Double) = (sinTable.length.toDouble / width, sinTable.length.toDouble / height)
 
-  val state: Array[Int] = Array(0, 0)
+  val state: Array[Double] = Array(0.0, 0.0)
 
 
   override def start(primaryStage: Stage): Unit = {
@@ -76,7 +95,7 @@ class PlasmaJfxApp extends javafx.application.Application {
 
 
       override def handle(now: Long): Unit = {
-        applySinus(backingArray, sinTable, colorDepth, state)
+        applySinus(backingArray, sinTable, cosTable, colorDepth, state)
         drawByteArray(canvas, backingArray)
 
       }
@@ -86,36 +105,59 @@ class PlasmaJfxApp extends javafx.application.Application {
   }
 
   private def applySinus(backingArray: Array[Byte]
-                         , sinTable: Array[Double] = sinTable
-                         , colorDepth: Int = 255
-                         , state: Array[Int]) = {
-    val moveX = state(0)
-    val moveY = state(1)
-    state(0) = state(0) + 1
-    state(1) = state(1) + 1
-    val superXFac = 1
-    val superYFac = 1
-    for {x <- xs
-         y <- ys} {
-      val sinXIndex = ((x * xFac * superXFac).toInt + moveX * superXFac) % sinTable.length
-      val sinYIndex = ((y * yFac * superYFac).toInt + moveY * superYFac) % sinTable.length
+                         , sinTable: Array[Double]
+                         , cosTable: Array[Double]
+                         , colorDepth: Int
+                         , state: Array[Double]) = {
+    val time = state(0)
+    state(0) = state(0) + xPiFac
 
-     // val sinIndex = (sinXIndex + sinYIndex) % sinTable.length
+    val barCount = 5
 
-      val c: Int = (sinTable(sinXIndex) * colorDepth).toInt
+    for {(x, colX) <- xs zip colXs
+         (y, colY) <- ys zip colYs} {
 
-      backingArray(x * 3 + 0 + y * backingArrayWidth) = c.toByte
-      backingArray(x * 3 + 1 + y * backingArrayWidth) = c.toByte
-      backingArray(x * 3 + 2 + y * backingArrayWidth) = c.toByte
+      val v: Int = {
+
+        // wandering bars from right to left
+        val v1 = sin(colX * 10 + time * 10)
+
+        // wobbling bars round each other
+        val v2 = sin(barCount * (colX * sin(barCount * time / 2) + colY * cos(barCount * time / 3)) + barCount * time)
+
+        // circles floating around
+        val cx = colX + 0.5 * sin( time / 5)
+        val cy = colY + 0.5 * cos( time / 3)
+        val v3 = sin(Math.sqrt(100 * (cx * cx + cy * cy) + 1 +  time))
+
+        // adding it all together
+        val v = (v1 + v2 + v3) % 1
+
+        val r = (v * colorDepth + 127).toInt
+        if (r == -1) 0 else r
+      }
+
+
+      backingArray(x + 0 + y) = v.toByte
+      backingArray(x + 1 + y) = v.toByte
+      backingArray(x + 2 + y) = v.toByte
     }
+
   }
 
-  private def applyNoise(a: Array[Byte]) = {
-    for (i <- a.indices) a(i) = Random.nextInt(254).toByte
+  //def sin(a: Double): Double = sinTable((a % sinTable.length).toInt)
+  def sin(a: Double): Double = Math.sin(a)
+
+  //def cos(a: Double): Double = cosTable((a % cosTable.length).toInt)
+  def cos(a: Double): Double = Math.cos(a)
+
+  private def computeSinIndex(time: Int, x: Double, y: Double) = {
+
   }
 
   private def drawByteArray(canvas: Canvas, bytes: Array[Byte]) = {
     val pxw: PixelWriter = canvas.getGraphicsContext2D.getPixelWriter
     pxw.setPixels(0, 0, width, height, PixelFormat.getByteRgbInstance, bytes, 0, backingArrayWidth)
   }
+
 }
