@@ -8,9 +8,23 @@
         <author>FH Joanneum</author>
     </meta>
 
-    <toc name="Lectures">
-        <item name="Scala Basics and Tooling" ref="scala-basics-tooling/index.html"/>
-        <item name="Testing" ref="testing/index.html"/>
+    <toc name="Software Engineering Basic">
+        <item name="Course overview" ref="overview/index.html"/>
+        <item name="Scala Basics" ref="scala-basics/index.html">
+            <item name="Classes versus Case classes" ref="scala-basics/classes-and-case-classes.html"/>
+            <item name="Immutability" ref="scala-basics/immutability.html"/>
+        </item>
+        <item name="Toolings" ref="toolings/index.html">
+            <item name="Build systems" ref="toolings/a.html"/>
+            <item name="Bug and issue tracking software" ref="toolings/b.html"/>
+            <item name="Continuous Integration" ref="toolings/c.html"/>
+            <item name="Source control systems" ref="toolings/d.html"/>
+        </item>
+        <item name="Testing" ref="testing/index.html">
+            <item name="Unit Tests" ref="testing/a.html"/>
+            <item name="Other types of tests" ref="testing/b.html"/>
+
+        </item>
         <item name="Functional vs imperative programming" ref="functional-imperative/index.html"/>
         <item name="Event driven apps" ref="event-driven/index.html"/>
         <item name="Event driven apps II" ref="event-driven-2/index.html"/>
@@ -22,9 +36,11 @@
         <coverTitle>SWENGB</coverTitle>
         <coverSubTitle>Software Engineering Basic</coverSubTitle>
         <coverType>course material</coverType>
+        <coverdate>2017-08-14</coverdate>
         <projectName>SWENGB</projectName>
         <!--<projectLogo>http://www.nextsense.at/_include/css/img/logo.png</projectLogo>-->
         <companyName>FH JOANNEUM</companyName>
         <companyLogo>FHJ_Logo_100mm_rgb_web.png</companyLogo>
+        <author>Robert Ladstätter</author>
     </cover>
 </document>
