@@ -11,8 +11,10 @@
     <toc name="Software Engineering Basic">
         <item name="Course overview" ref="overview/index.html"/>
         <item name="Scala Basics" ref="scala-basics/index.html">
-            <item name="Classes versus Case classes" ref="scala-basics/classes-and-case-classes.html"/>
-            <item name="Immutability" ref="scala-basics/immutability.html"/>
+            <item name="Classes" ref="scala-basics/classes.html"/>
+            <item name="Objects" ref="scala-basics/objects.html"/>
+            <item name="Traits" ref="scala-basics/traits.html"/>
+            <item name="Types" ref="scala-basics/types.html"/>
         </item>
         <item name="Toolings" ref="toolings/index.html">
             <item name="Build systems" ref="toolings/a.html"/>

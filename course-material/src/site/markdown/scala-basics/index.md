@@ -1,6 +1,6 @@
 ## Introduction
 
-**Scala is a programming language with a rather unique approach: It allows an functional programming style, but can be used as a full fledged object oriented programming language as well.**
+**Scala allows to use a functional programming style, but can also be used as a full fledged object oriented programming language as well.**
 
 It can be seen as a missing link between enterprise development (a domain where Java has its strengths) and pure functional programming (Haskell comes to mind). Like this, both worlds profit, and at the end more efficient software can be written.
 
@@ -11,7 +11,7 @@ Please bear in mind that this chapter only gives a very short, incomplete and si
 
 ### History
 
-It has been developed by **[Martin Odersky](https://twitter.com/odersky)**, a professor at EPFL and is now backed by a company called Lightbend which provides commercial support for Scala and its ecosystem. 
+It has been developed by [Martin Odersky](https://twitter.com/odersky), a professor at EPFL and is now backed by a company called Lightbend which provides commercial support for Scala and its ecosystem. 
 
 Scala and its core libraries have been under constant improvement already since more than a decade. 
 

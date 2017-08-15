@@ -1,4 +1,4 @@
-# Classes versus Case classes
+## Classes 
 
 The examples following below should be tried out on the _Scala REPL_, which is an easy way to try out small code snippets. You can start the _REPL_ just by typing in _scala_ on the command line, given that you've installed Scala correctly.
 
@@ -40,6 +40,8 @@ val address = new Address("Alte Poststraße 149")
 val person = new Person("Bob", address)
 ~~~
 
+## Case classes
+
 If you prepend the _class_ keyword with _case_, you get so called 'case classes', which are most commonly used:
 
 ~~~
@@ -79,3 +81,70 @@ In the second example, with _case class B_ however, we compare the classes by in
 The comparison of _a_ and _b_ therefore yields true, since, _1_ equals _1_. 
 
 _Case classes_ are foundational for our purposes and the programming style we'll pursue in this course. They are omnipresent in typical Scala code bases. For example, they are of great use when doing pattern matching.
+
+## Methods on classes
+
+In Scala on can define methods in (case) classes:
+
+~~~
+case class A(name: String) {
+
+  def greet() : Unit = println("hello " + name)
+
+}
+
+A("world").greet()      ... prints out 'hello world'
+~~~
+
+In this example we have a method which returns nothing, the proper return type is _Unit_ in this case. _Unit_ can be compared with _void_ in other programming languages (_C_ for example).
+
+## Access Modifier
+
+In Scala, if not stated otherwise, the visibility of methods or attributes is always _public_. For our simple applications we won't need access modifiers, but in real world systems those modifieres help to enforce [_information hiding_](https://en.wikipedia.org/wiki/Information_hiding).
+
+Example:
+
+~~~
+case class A(i : Int) {
+
+  private def foo() : Unit = println("internal")
+  
+  foo()
+  
+}
+
+A(10) ... prints 'internal'
+
+val x = A(10)
+
+x.foo() ... won't compile
+~~~
+
+The method _foo_ can only be called inside A and is not reachable outside of the scope of this class.
+
+## Immutability
+
+During this course, we will hit very often the need to modify existing data structures, and if one is used to do imperative programming, programming with immutable data can be some kind of alienating.  
+
+_case classes_ support programming with immutable data structures, they greatly simplify working with immutable data. They can be used to encode ADT's, so called _algebraic data types_.
+
+One method we'll use very often with _case classes_ is the _copy_ method:
+
+~~~
+case class A(i : Int, b : Boolean)
+val a = A(10,false)
+println(a.b)                  ... prints 'false'
+
+val x = a.copy(b = true)
+println(x.b)                  ... prints 'true'
+~~~
+
+As one can see, the _copy_ method can be used to just take the whole original instance, and replace some selected attributes with new values.
+
+If you have wondered about the efficiency of copying large instances: Scala is implemented in a way that this is not an issue, since internally the objects are not really copied, but layed out in memory in a clever way such that no copying of data is performed in reality, but copied objects reference the same data.
+
+Generally speaking, one can say that programming with immutable data is easier to reason about and also makes it simpler to parallelize algorithms and runtime implementations.
+
+Like mentioned elsewhere, Scala perfectly supports programming with mutable data as well. This is, however, not recommended. It makes reading the code more difficult and is often a source of bugs. Try to avoid that style whenever possible. 
+
+ 
