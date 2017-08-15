@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>at.fh-joanneum.swengb</groupId>
-    <artifactId>master-pom</artifactId>
+    <groupId>at.fh-joanneum.ima</groupId>
+    <artifactId>swengb</artifactId>
     <version>2017-SNAPSHOT</version>
-    <name>at.fh-joanneum.swengb</name>
+    <name>at.fh-joanneum.ima</name>
     <packaging>pom</packaging>
 
     <url>http://127.0.0.1/swengb/${project.version}</url>
