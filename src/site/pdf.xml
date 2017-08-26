@@ -10,6 +10,7 @@
 
     <toc name="Software Engineering Basic">
         <item name="Course overview" ref="overview/index.html"/>
+        <item name="Software Engineering" ref="softwareengineering/index.html"/>
         <item name="Scala Basics" ref="scala-basics/index.html">
             <item name="Classes" ref="scala-basics/classes.html"/>
             <item name="Objects" ref="scala-basics/objects.html"/>

@@ -14,8 +14,9 @@ Furthermore, the course will cover several case studies to demonstrate various a
 
 The course contains following subjects:
 
-- [Introduction into the Scala programming language](../scala-basics/index.html)
+- [Software Engineering](../softwareengineering/index.html) : Definition, Methodologies, Crisis?
 - [Toolings](../toolings/index.html): Continuous Integration Server, Build Tools, Ticket Systems, Documentation Systems 
+- [Scala Basics](../scala-basics/index.html): An introduction into the Scala programming language
 - How to write Unit [tests](../testing/index.html)
 - Selected case studies to compare functional and imperative programming
 - GUI programming: create event driven applications
@@ -25,8 +26,6 @@ The course contains following subjects:
 ### Organisational aspects
 
 The course consists of lectures and labs. The latter serve for practicing the theory learned in the lectures, working on assignments and exercises. 
-
-
 
 ### Grading
 
