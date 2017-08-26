@@ -11,17 +11,12 @@
     <toc name="Software Engineering Basic">
         <item name="Course overview" ref="overview/index.html"/>
         <item name="Software Engineering" ref="softwareengineering/index.html"/>
+        <item name="Toolings" ref="toolings/index.html"/>
         <item name="Scala Basics" ref="scala-basics/index.html">
             <item name="Classes" ref="scala-basics/classes.html"/>
             <item name="Objects" ref="scala-basics/objects.html"/>
             <item name="Traits" ref="scala-basics/traits.html"/>
             <item name="Types" ref="scala-basics/types.html"/>
-        </item>
-        <item name="Toolings" ref="toolings/index.html">
-            <item name="Build systems" ref="toolings/a.html"/>
-            <item name="Bug and issue tracking software" ref="toolings/b.html"/>
-            <item name="Continuous Integration" ref="toolings/c.html"/>
-            <item name="Source control systems" ref="toolings/d.html"/>
         </item>
         <item name="Testing" ref="testing/index.html">
             <item name="Unit Tests" ref="testing/a.html"/>
