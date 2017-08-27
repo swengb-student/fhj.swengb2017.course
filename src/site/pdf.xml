@@ -18,6 +18,7 @@
             <item name="Traits" ref="scala-basics/traits.html"/>
             <item name="Types" ref="scala-basics/types.html"/>
             <item name="Control structures" ref="scala-basics/controlstructures.html"/>
+            <item name="Functions" ref="scala-basics/functions.html"/>
         </item>
         <item name="Testing" ref="testing/index.html"/>
         <item name="Functional vs imperative programming" ref="functional-imperative/index.html"/>
