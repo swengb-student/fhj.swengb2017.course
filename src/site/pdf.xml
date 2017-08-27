@@ -17,17 +17,17 @@
             <item name="Objects" ref="scala-basics/objects.html"/>
             <item name="Traits" ref="scala-basics/traits.html"/>
             <item name="Types" ref="scala-basics/types.html"/>
+            <item name="Control structures" ref="scala-basics/controlstructures.html"/>
         </item>
-        <item name="Testing" ref="testing/index.html">
-            <item name="Unit Tests" ref="testing/a.html"/>
-            <item name="Other types of tests" ref="testing/b.html"/>
-
-        </item>
+        <item name="Testing" ref="testing/index.html"/>
         <item name="Functional vs imperative programming" ref="functional-imperative/index.html"/>
         <item name="Event driven apps" ref="event-driven/index.html"/>
         <item name="Event driven apps II" ref="event-driven-2/index.html"/>
         <item name="Messaging and Protocols" ref="messaging-protocols/index.html"/>
         <item name="Server and client communication" ref="server-client/index.html"/>
+        <item name="Case Studies" ref="casestudies/index.html">
+            <item name="Scene Builder" ref="casestudies/scenebuilder.html"/>
+        </item>
     </toc>
 
     <cover>
