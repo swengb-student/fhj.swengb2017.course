@@ -6,7 +6,11 @@ It can be seen as a missing link between enterprise development (a domain where 
 
 In this chapter, we'll talk briefly about the history of Scala, it's current state and where current developments are heading to. After that, we'll have a look at basic Scala syntax, for example we'll examine _classes_, _traits_, _objects_, _for comprehensions_ and so on. 
 
-Please bear in mind that this chapter only gives a very short, incomplete and simplified view on the Scala language. There are many resources available online for learning Scala, a good starting point would be [www.scala-lang.org](www.scala-lang.org). The discussion in this chapter should serve as a starting point, to get a glimpse of the bigger picture.
+Please bear in mind that this chapter only gives a very short, incomplete and simplified view on the Scala language. There are many resources available online for learning Scala, a good starting point would be [www.scala-lang.org](http://www.scala-lang.org). The discussion here should serve as a starting point, provide you with the bare minimum to start and to be able to write useful programs.
+
+Standard literature for learning Scala is the book [Programming in Scala, 1st edition (online version)](http://www.artima.com/pins1ed/) by Odersky, Spoon and Venners. In the meantime it has its 3rd edition, available in your favorite bookstore. Another great book which uses Scala as vehicle for teaching functional programming concepts would be [Functional Programming in Scala](https://www.manning.com/books/functional-programming-in-scala) by Chiusano and Bjarnason.
+
+Reading both titles is **highly** recommended, it will give you better insights in programming in general and will be very helpful for mastering this course. 
 
 
 ### History

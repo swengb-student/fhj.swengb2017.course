@@ -21,6 +21,7 @@ The course contains following subjects:
 - Selected case studies to compare functional and imperative programming
 - GUI programming: create event driven applications
 - Server / Client programming with protocols
+- [Case Studies](../casestudies/index.html) Some case studies for applications
 
 
 ### Organisational aspects

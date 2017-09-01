@@ -79,6 +79,7 @@ Examples of build systems are
 |Make      | C / C++     | The father of all build tools |
 |CMake     | C / C++     | Superset of features of Make, cross platform discovery of system libraries|
 |MsBuild   | .NET        | by Microsoft, helps building .NET for example |
+]BazelBuild| various     | by Google, [bazel.build](https://bazel.build)
 |...       | ...         | ...|
 
 to name but a few. Most of the cited list are JVM based build systems, but for other technolgies there exist such concepts as well.  
