@@ -1,0 +1,1 @@
+== Functional versus imperative programming

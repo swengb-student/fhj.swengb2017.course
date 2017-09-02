@@ -1,0 +1,70 @@
+= Software Engineering Basic 2017
+Robert Ladstätter <rladstaetter@gmail.com>
+v1.0, 2017-09-01
+:homepage: http://ladstatt.net
+:example-caption!:
+ifndef::imagesdir[:imagesdir: images]
+ifndef::sourcedir[:sourcedir: ../../main/scala]
+
+This is the online documentation for the lecture 'Software Engineering Basic' held in 2017 at the *FH JOANNEUM - University of Applied Science*, Graz.
+
+include::overview.adoc[]
+
+include::softwareengineering.adoc[]
+
+include::toolings.adoc[]
+
+include::scala-basics/scala-basics.adoc[]
+
+
+=== Introduction
+
+This project does something.
+We just haven't decided what that is yet.
+
+=== Source Code
+
+[source,scala]
+.Java code from project
+----
+include::{sourcedir}/at/fhj/swengb/examples/Example.scala[tags=contains,indent=0]
+----
+<1> return statement
+
+This page was built by the following command:
+
+ $ mvn
+
+=== Images
+
+[.thumb]
+image::sunset.jpg[scaledwidth=75%]
+
+=== Attributes
+
+.Built-in
+asciidoctor-version:: {asciidoctor-version}
+safe-mode-name:: {safe-mode-name}
+docdir:: {docdir}
+docfile:: {docfile}
+imagesdir:: {imagesdir}
+
+.Custom
+sourcedir:: {sourcedir}
+
+=== Includes
+
+.include::subdir/_b.adoc[]
+======
+include::subdir/_b.adoc[]
+======
+
+WARNING: Includes can be tricky!
+
+=== Source Code and Syntax Highlighting
+
+This section shows some code highlighting examples.
+
+include::subdir/_code_examples.adoc[]
+
+
