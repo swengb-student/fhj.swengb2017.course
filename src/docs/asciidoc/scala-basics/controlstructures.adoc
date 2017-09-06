@@ -42,7 +42,7 @@ Important takeaway is that _if_ statements return a value and are a tool to choo
 
 Unlike in other languages, the _for_ expression in scala is much more powerful than just simply "looping" over a range of values. In fact, the _for_ expression in scala serves as a syntactic sugar for doing more complex programming tasks, like we will see in the examples below.
 
-====== Iterate over a range of values
+===== Iterate over a range of values
 
 [source,scala]
 ----
@@ -80,7 +80,7 @@ _List_, _Array_ and _Seq_ can be _traversed_, and one intuitively can use this p
 
 The data structures _List_, _Array_, _Seq_ and others are part of the standard collection library of Scala, and are tailored to be used with the _for_ expression. There are more _collection_ types, and you can even implement your own classes which can be traversed in the way described above. 
 
-====== Iterate over more than one collection
+==== Iterate over more than one collection
 
 To give you an idea of the power of the _for_ expression, here is another example of what you can do:
 
@@ -93,7 +93,7 @@ for {i <- 1 until 10
 
 Try this out in the _REPL_, you will see that the _for_ expression can iterate over more than one collection. In fact, this idiom is used on a daily basis and is a very important tool to tackle programming problems in Scala.
 
-====== Conditional evaluation
+==== Conditional evaluation
 
 The for expression contains even more goodies:
 
@@ -104,7 +104,7 @@ for {i <- 1 to 100 if i % 3 == 0} println(i)
 
 This shows that you can filter out values from the original generator, and only evaluate a subset of the original traversable sequence. In the example above, only values are printed which can be divided with _3_.
 
-====== Returning results
+==== Returning results
 
 Like the _if_ statement, also _for_ expressions can return results. This is a big win over other imperative languages, and comes in very handy if you want to transform data. In order to return values, one has to use the _yield_ keyword.
 

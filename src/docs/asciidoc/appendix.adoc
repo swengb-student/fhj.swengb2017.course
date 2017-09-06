@@ -1,0 +1,31 @@
+== Appendix
+
+=== Recommended reading
+
+Programming in Scala -  Odersky, Spoon, Venners::
+A very approachable book, well written and suitable for the aspiring learner.
+
+Functional Programming in Scala - Chiusano, Bjarnason::
+Teaches functional programming, explains functional programming concepts with Scala as vehicle. Nice!
+
+Working Effectively with Legacy Code, - Michael Feathers::
+Gives examples how to successfully tame an existing codebase which is in a state of sheer mess. Funny.
+
+Der Termin: Ein Roman über Projektmanagement - Tom DeMarco::
+A story about how to manage software projects. Entertaining reading for the weekend.
+
+Scrum - Produkte zuverlässig und schnell entwickeln - Boris Gloger::
+A book about Scrum. Gloger explains well what you need to know about Scrum.
+
+Structure and Interpretation of Computer Programs - Ableson, Sussman::
+For the ambitious student. Read and understand it and the world is yours.
+
+
+=== Glossary
+
+refactoring::
+'to refactor' means to change a part of the system. Within software developers this term has a very positive meaning, and is used frequently. If a refactoring pays off and yields a simpler version of the system with the same observable behavior, it saves a lot of time on the long run.
+
+[#open-closed-principle]
+Open Closed Principle::
+Software should be open for extension, but closed for modification. Adding a new feature should be possible, but this new feature should not break existing functionality.

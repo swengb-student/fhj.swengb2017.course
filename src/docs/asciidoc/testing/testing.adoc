@@ -1,0 +1,102 @@
+[#testing]
+== Testing
+
+[quote, Bertrand Meyer]
+Testing a program to assess its quality is, in theory, akin to sticking pins into a doll—very small pins, very large doll.
+
+Writing software is a creative process. In fact, writing software is one of the few activities which are very well paid where thoughts literally materialize to artifacts which provide some value to somebody.
+
+If one overcomes the first hurdles of learning the basics of software development, programming, communication and tooling, one will experience an enormous joy in writing software. More sooner than later one will also discover that software can be a beast which is sometimes very hard to tame.
+
+In fact, software tests help in managing the complexity of those giant buildings made up of mere thoughts, rules, and conventions.
+
+Typically, without tests there is a tendency to not change the behavior of the system in a fundamental way. That means that - given the system is interesting enough to be maintained over a longer period of time - the software system will be extended with various features.
+
+Adding features without broadening the scope of the system, without rethinking structures in a radical way or without extracting common behaviour to so called core components will end in exponential growth of costs for writing new features and for maintaining them.
+
+Sooner than later features will interact in a way which contradict themselves, and as a software developer one is forced to rewrite parts of the system which play a major role in the software. that means changing the class or function which is used everywhere.
+
+It is a vicious circle: if some software doesn't have tests, it is dangerous to change anything in the codebase, since one cannot be sure about if the change didn't have side effects which were not intended.
+
+If you negate the positive effects of tests during development, this will be the point when tests would be handy.
+
+Writing them at a later stage of a project is a very hard problem since if the software was not written with tests in mind it is downright impossible to introduce them.
+
+Parts of the system have to be made 'testable' which requires experience, diligence and endurance.
+
+It is again an art by itself. It is time consuming and thus expensive. By far more expensive compared to the approach of writing them incrementally, like the system itself.
+
+=== Manual Testing
+
+Programs need to adhere to specifications to serve their purpose. That means that the result of an execution of a program is well defined and observable.
+
+The simple form of testing, nevertheless a very important one,  is the so called manual testing approach.
+
+Executing this form of test doesn't necessarily involve any knowledge of computer programming. Typically, one compares the outcome of a program with its specification. Depending on the completeness of this specification, one can identify differences and thus report them.
+
+The downside of this approach is that it is very time consuming to perform a full testing cycle, and it involves human interaction which makes it expensive. Nevertheless it is important that programs are tested by humans before they ship to the customers, since no automated test can replace the experience of a good quality assurance testing team.
+
+Sometimes, the complexity of a system makes it very hard to programmatically test the whole system, in some cases it is downright impossible. In such cases manual testing is invaluable.
+
+=== Unit Tests
+
+Software is developed in small chunks which are combined to form a more complex system. Those chunks, wherever one may draw the line, have to be correct in order to combine them to bigger and more complex systems.
+
+Such 'units' of software should be tested in isolation - such tests are called 'Unit tests'.
+
+Unit tests provide ideally the minimum environment for a software chunk to properly work and demonstrate its correct behavior.
+
+This isolates the code chunk from the rest of the system, it can be fed with specialized input and the output of the chunk is tested against a set of expectations.
+
+This pinpoints the functionality, using this approach one gets executable specifications. Such specifications have the great advantge that they are strongly coupled to the code. Changing one's expectations about the functionality of a small software part directly and unambiguously affects the test outcome. One has to alter the software chunk in order to adhere to the new rules. From that point onwards, the specification - if executed on a regular basis - gives feedback about the proper function of this part of the system.
+
+Unit tests are lightweight and fast in execution. This is a very important trait of good unit tests. It is important because ideally unit tests are executed with every change to the source code.
+
+Instant feedback is key - if the tests are failing a developer is forced to change their contribution in a way that the existing code base is following the <<open-closed-principle, "Open - Closed - Principle">>.
+
+A synonym in the JVM world for unit tests is 'JUnit'. In fact, this library has extended its success to other languages, and as such there is support for this 'xUnit' approach for several languages. This is also a clear sign that the approach to unit testing is of great value.footnote:[There are many examples for cross - insemination of libraries, a very successful example would be the 'rx library' family, which has been a major driver for innovation on various platforms. It was originally conceived for the .NET platform, and has been ported to the JVM or Javascript runtime as well. Skim through http://reactivex.io/languages.html[reactiveX.io] for more information about that.]
+
+Anyway, the 'JUnit' library supports all traits mentioned above, like providing means for setting up an isolated environment for testing a software chunk, deallocating resources afterwards, executing tests in parallel, embedding test execution in a continuous integration environment and so on. footnoteref:[It is pretty standard to use JUnit on the JVM, however we will use ScalaTest, another unit testing library, which is very common when programming in Scala. It supports JUnit style tests as well as a number of other testing approaches.]
+
+A critique on unit tests is that they slow down development significantly. This is true, and one has to keep attention to the quality of the unit tests as well. Tests tend to be written in a 'fire and forget' style; at the time of writing a test there is always not enough time to do it properly. One has to constantly remind oneself that the quality of a test matters - at least the same amount than the quality of the production code, if not more.
+
+The reason is apparent when tests are failing: the better a test was written, the higher the quality of a test, the easier it is to see what is going on and what needs to be changed in order to get to passing tests again. If the test was not properly written, it can be a challenge to reengineer the original intention of the test, which unfortunately often leads to a reimplementation of the test.
+
+The maintenance burden of unit tests is not to be underestimated.
+
+NOTE: Choose wisely which tests you write.
+
+See also <<test-coverage, the chapter about test coverage>> for a discussion about the 'right amount of unit tests'-
+
+
+
+=== Component Tests
+
+Component tests glue the aforementioned software chunks together to more complex, bigger software systems.
+
+Those components have to be tested as well, that means the interaction between different layers of software has to be verified.
+
+However, in essence the same techniques like with unit testing are used in this domain as well, from the point of view of the developer not much changes.
+
+The biggest difference is that the tests run longer. If done right, the observable behavior of software components is defined more rigidly, the interfaces are more stable than within smaller software units.footnote:[think of 'implementation details']
+
+That means that component tests, if properly written, change slower than unit tests.
+
+However, the boundaries of software components are hard to describe
+
+=== End2End Tests
+=== Performance Tests
+
+[#test-coverage]
+=== Test coverage
+=== Costs of tests
+
+If you think about it, just by reading this chapter, you will come to the conclusion that software tests are expensive. They are expensive to write, they are expensive to maintain.
+
+There is no discussion about that certain kinds of tests help writing software more effectively. Software systems tend to reach a complexity which is impossible to handle without the safety net of tests.
+
+
+
+=== Case Study: Property based testing
+=== Case Study: Mutation Testing
+

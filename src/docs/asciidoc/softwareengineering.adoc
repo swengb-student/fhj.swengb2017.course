@@ -1,10 +1,13 @@
-=== Software Engineering: Definition
-  
+[#sw-engineering]
+== Software Engineering
+
+=== Definition
+
 The term encompasses a specific set of disciplines including defined process, inspections and walkthroughs, requirements engineering, traceability matrices, metrics, precise quality control, rigorous planning and tracking, and coding and documentation standards. 
 
 In general, software engineering focuses more on techniques for the application of software development in industry, while computer science focuses more on algorithms and theory.
 
-==== Software Engineering Methodologies
+=== Methodologies
 
 Many efforts have been made to press Software Engineering (SE) in a set of rules in order to be as efficient as possible. In the last years the https://en.wikipedia.org/wiki/Scrum_\(software_development\[SCRUM]) approach has reached broad adoption in the industry.
 
@@ -28,7 +31,7 @@ This list is not comprehensive, for example the Waterfall approach is not mentio
 
 There are also voices who question the process and approaches as a whole. 'Self organizing teams' and 'Agile development' may be mentioned in this respect.
 
-==== Software Engineering: Crisis?
+=== Challenges
 
 Working as a software developer not only means to master technically challenging details, but also and foremost to communicate clearly and efficiently with your coworkers. 
 

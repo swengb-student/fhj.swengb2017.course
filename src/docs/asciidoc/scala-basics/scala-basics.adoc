@@ -1,4 +1,5 @@
-=== Introduction
+[#scala-basics]
+== Scala Basics
 
 **Scala allows to use a functional programming style, but can also be used as a full fledged object oriented programming language as well.**
 
@@ -13,7 +14,7 @@ Standard literature for learning Scala is the book http://www.artima.com/pins1ed
 Reading both titles is **highly** recommended, it will give you better insights in programming in general and will be very helpful for mastering this course. 
 
 
-==== History
+=== History
 
 It has been developed by https://twitter.com/odersky[Martin Odersky], a professor at EPFL and is now backed by a company called Lightbend which provides commercial support for Scala and its ecosystem.
 
@@ -21,7 +22,7 @@ Scala and its core libraries have been under constant improvement already since 
 
 The third version of the language and its compilers has been in the works already since about 4 years and is based on a formal proven type system which is essential for future growth of the language and its concepts.
 
-==== Environments
+=== Environments
 
 Scala targets the _JVM_ as its primary runtime environment, where interoperability with other JVM based languages like of course Java, Clojure, Kotlin and the like is a major selling point for the language. 
 
@@ -29,21 +30,21 @@ Moreover, there exists a compiler infrastructure to generate _Javascript_ out of
 
 Only recently an AOT (https://en.wikipedia.org/wiki/Ahead-of-time_compilation[_Ahead of time compilation_]) compiler chain for Scala was developed to generate _LLVM_ bitcode. Using this AOT compiler, it is possible to generate native executables and be independent of the JVM.
 
-==== Adoption
+=== Adoption
 
 Scala is endorsed by many major companies like Apple, IBM, Linkedin, SAP, Twitter etc.
 
 
-include::classes.adoc[]
+include::{docdir}/scala-basics/classes.adoc[]
 
-include::objects.adoc[]
+include::{docdir}/scala-basics/objects.adoc[]
 
-include::traits.adoc[]
+include::{docdir}/scala-basics/traits.adoc[]
 
-include::types.adoc[]
+include::{docdir}/scala-basics/types.adoc[]
 
-include::controlstructures.adoc[]
+include::{docdir}/scala-basics/controlstructures.adoc[]
 
-include::functions.adoc[]
+include::{docdir}/scala-basics/functions.adoc[]
 
 
