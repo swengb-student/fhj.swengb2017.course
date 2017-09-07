@@ -63,7 +63,7 @@ Unlike other engineering fields like in the construction industry there are no o
 
 The software industry still has to learn as a whole to get to such common established rules. But in the short history of Software Engineering - the term was first phrased on a conference some 40 years ago - projects were finished successfully even without such rules, others failed miserably but were very well planned and documented, but created the wrong assets.
 
-https://www.computer.org/cms/Computer.org/ComputingNow/homepage/2009/0709/rW_SO_Viewpoints.pdf[Tom de Marco], a well known vocal advocate of software engineering, said almost ten years ago that his conclusion of working on software teams for most of his life was that software should be developed incrementally.
+https://www.computer.org/cms/Computer.org/ComputingNow/homepage/2009/0709/rW_SO_Viewpoints.pdf[Tom DeMarco], a well known vocal advocate of software engineering, said almost ten years ago that his conclusion of working on software teams for most of his life was that software should be developed incrementally.
 
 This means that whilst working towards a greater goal, one should make sure that additional features are added to the existing project, such that a client would profit from them right away.
 

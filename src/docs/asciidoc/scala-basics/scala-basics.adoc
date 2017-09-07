@@ -1,13 +1,15 @@
 [#scala-basics]
 == Scala Basics
 
-**Scala allows to use a functional programming style, but can also be used as a full fledged object oriented programming language as well.**
+NOTE: Scala allows to use a functional programming style, but can also be used as a full fledged object oriented programming language as well.
 
 It can be seen as a missing link between enterprise development (a domain where Java has its strengths) and pure functional programming (Haskell comes to mind). Like this, both worlds profit, and at the end more efficient software can be written.
 
-In this chapter, we'll talk briefly about the history of Scala, it's current state and where current developments are heading to. After that, we'll have a look at basic Scala syntax, for example we'll examine _classes_, _traits_, _objects_, _for comprehensions_ and so on. 
+In this chapter, we'll talk briefly about the history of Scala, it's current state and where current developments are heading to. After that, we'll have a look at basic Scala syntax, for example we'll examine _classes_, _traits_, _objects_, _for comprehensions_ and so on.
 
-Please bear in mind that this chapter only gives a very short, incomplete and simplified view on the Scala language. There are many resources available online for learning Scala, a good starting point would be http://www.scala-lang.org[www.scala-lang.org]. The discussion here should serve as a starting point, provide you with the bare minimum to start and to be able to write useful programs.
+Please bear in mind that this chapter only gives a very short, incomplete and simplified view on the Scala language. There are many resources available online for learning Scala, a good starting point would be http://www.scala-lang.org[www.scala-lang.org].
+
+The discussion here should serve as a starting point, provide you with the bare minimum to start and to be able to write useful programs.
 
 Standard literature for learning Scala is the book http://www.artima.com/pins1ed/[Programming in Scala, 1st edition (online version)] by Odersky, Spoon and Venners. In the meantime it has its 3rd edition, available in your favorite bookstore. Another great book which uses Scala as vehicle for teaching functional programming concepts would be https://www.manning.com/books/functional-programming-in-scala[Functional Programming in Scala] by Chiusano and Bjarnason.
 

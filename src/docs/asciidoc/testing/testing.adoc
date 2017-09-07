@@ -38,6 +38,18 @@ The downside of this approach is that it is very time consuming to perform a ful
 
 Sometimes, the complexity of a system makes it very hard to programmatically test the whole system, in some cases it is downright impossible. In such cases manual testing is invaluable.
 
+=== White vs Blackbox tests
+
+It makes a difference if you know details about the implementation, or if you test a system just by observing its behavior and derive certain properties from it. The first approach is called 'Whitebox', the latter 'Blackbox' testing.
+
+=== Tests serve as documentation
+
+Tests have many advantageous properties, and one of them is that they can also be seen as a documentation. They describe how a system works, which inputs it uses, which outputs are expected.
+
+Seen from this perspective, tests give a invaluable insight in the function of a system.
+
+
+
 === Unit Tests
 
 Software is developed in small chunks which are combined to form a more complex system. Those chunks, wherever one may draw the line, have to be correct in order to combine them to bigger and more complex systems.
@@ -66,8 +78,7 @@ The maintenance burden of unit tests is not to be underestimated.
 
 NOTE: Choose wisely which tests you write.
 
-See also <<test-coverage, the chapter about test coverage>> for a discussion about the 'right amount of unit tests'-
-
+See also <<test-coverage, the chapter about test coverage>> for a discussion about the 'right amount of unit tests'.
 
 
 === Component Tests
@@ -82,19 +93,65 @@ The biggest difference is that the tests run longer. If done right, the observab
 
 That means that component tests, if properly written, change slower than unit tests.
 
-However, the boundaries of software components are hard to describe
-
-=== End2End Tests
 === Performance Tests
+
+Performance tests concentrate on the response time of the system, how resilient a system is or how it behaves under load. Repeatable performance tests are very hard to write and to maintain. The reason for that is that the system which is under test (SUT) continuously changes and evolves. This means that the performance metrics are hard to compare, so one has to choose wisely in order to be able to measure progress or regressions.
+
+Still, performance tests also demand that the software is executed under comparable conditions, which means that performance tests should be executed in isolation. No other process should compete with the resources used by the SUT. A dedicated performance testing environment is the only answer to this requirment.
 
 [#test-coverage]
 === Test coverage
+
+Line test coverage reports tell you which lines of code were executed by your tests. Line coverage reports are very easy to understand (a line was hit by a test or not) and of great help to write the tests themselves. In modern IDE's such line test coverage reports are already included (as well as the ability to execute tests themselves). Like this it is easy to see which parts of a class for example are still untested and which one is already hit once by a test.
+
+Hitting in this context means that a conceptualized program counter passes by this line and uses the line for executing. Such line coverage reports can also be used to detect dead code, relative to a usecase and can be useful in this respect as well.
+
+The following figure gives you an example of a line test coverage report.
+
+.Example test line coverage report
+image::test-line-coverage.png[Example test line coverage report,744,514]
+<<<
+
+Another form of a test coverage report is to summarize code by certain criterias, for example to group the code by files, packages, modules or directories. It depends on the language which criteria fits best and is the most practical way to structure the code.
+
+This gives you also an idea which parts of the system need more attention.
+
+.Example test coverage report
+image::test-coverage-example.png[Example test coverage report, 1357,453]
+
+NOTE: even with 100% coverage, bugs still can exist in the code.
+
+100% coverage is also very hard to reach, and in most cases just not necessary. The best ratio for test coverage should be decided individually. Usually, however, the ratio is too low and time is well spend writing some tests.
+
+NOTE: Creating the infrastructure to perform performance tests or coverage reports is not a negligible effort. Such reports however are a waste of time and resources if they are not constantly monitored and actions and reactions are derived from interpreting those reports.
+
 === Costs of tests
 
-If you think about it, just by reading this chapter, you will come to the conclusion that software tests are expensive. They are expensive to write, they are expensive to maintain.
+If you think about it, just by reading this chapter, you will come to the conclusion that software tests are expensive. They are expensive to write and to maintain.
 
 There is no discussion about that certain kinds of tests help writing software more effectively. Software systems tend to reach a complexity which is impossible to handle without the safety net of tests.
 
+Studies have shown that the additional effort for writing unit tests is about 30% of additional time to write the tests. This investment only pays off if the bug rate has decreased significantly by using the test driven approach. Another reason for creating unit tests is to be able to refactor the code and be sure that the system still adheres to the specification.
+
+=== Usability Testing
+
+Apps are more successful if they have a good usability, this aspect of software engineering must not be underestimated. An application has to be beautiful, fast and correct. The user sees those traits in this sequence, in fact the programmer should strive to implement them the other way around.
+
+NOTE: it is much easier to make a correct system faster, than a fast system correct. A fast but incorrect system is useless.
+
+A good architecture of an application allows to separate the GUI aspect from the 'business logic' of an application. The GUI should be usable, beautiful, efficient. To reach this goal constant feedback from end users is very important, early prototypes can help here, early feedback loops help to go in the right direction.
+
+
+=== Best practices for testing
+
+- write tests early, during development (TDD)
+- avoid complexity by splitting the system up in smaller parts
+- automate test execution
+- if a bug is identified, write a test for it
+- refactor tests
+- test code should have the same quality like production code
+- measure your tests (how many are there, executed daily, how many are ignored, ... )
+- document tests for future readers of those tests (will be very valuable to have documentation on the 'intention' of the test)
 
 
 === Case Study: Property based testing

@@ -20,7 +20,6 @@ A book about Scrum. Gloger explains well what you need to know about Scrum.
 Structure and Interpretation of Computer Programs - Ableson, Sussman::
 For the ambitious student. Read and understand it and the world is yours.
 
-
 === Glossary
 
 refactoring::
@@ -29,3 +28,9 @@ refactoring::
 [#open-closed-principle]
 Open Closed Principle::
 Software should be open for extension, but closed for modification. Adding a new feature should be possible, but this new feature should not break existing functionality.
+
+IDE::
+Integrated Development Environment: the application used to create source code, compile, test  and package your application.
+
+TDD::
+Test driven development: write tests during development.
