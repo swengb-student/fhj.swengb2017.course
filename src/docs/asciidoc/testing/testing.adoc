@@ -153,7 +153,67 @@ A good architecture of an application allows to separate the GUI aspect from the
 - measure your tests (how many are there, executed daily, how many are ignored, ... )
 - document tests for future readers of those tests (will be very valuable to have documentation on the 'intention' of the test)
 
+=== Unit Testing in Scala - with Scalatest
 
-=== Case Study: Property based testing
-=== Case Study: Mutation Testing
+Unit testing is not bound to a specific framework or library. There are quite a few libraries out there which make writing Unit Tests easy.
+
+During this course we will stick to the http://www.scalatest.org[ScalaTest] library.
+
+Here is an example of a unit test written in ScalaTest:
+
+[source, scala]
+----
+import collection.mutable.Stack
+import org.scalatest._
+
+class ExampleSpec extends FlatSpec with Matchers {
+
+  "A Stack" should "pop values in last-in-first-out order" in {
+    val stack = new Stack[Int]
+    stack.push(1)
+    stack.push(2)
+    stack.pop() should be (2)
+    stack.pop() should be (1)
+  }
+
+  it should "throw NoSuchElementException if an empty stack is popped" in {
+    val emptyStack = new Stack[Int]
+    a [NoSuchElementException] should be thrownBy {
+      emptyStack.pop()
+    }
+  }
+}
+----
+
+This library supports a variety of testing approaches, for simplicity we will also stick just to one subset of writing tests ("WordSpec").
+
+In this code example you can also witness a <DSL>> at work, the flexible and _scalable_ architecture of the Scala language makes it a good host for domain specific languages.
+
+Lets have a look at the first section of the **Spec**ification:
+
+[source, scala]
+----
+
+...
+
+  "A Stack" should "pop values in last-in-first-out order" in {
+    val stack = new Stack[Int]
+    stack.push(1)
+    stack.push(2)
+    stack.pop() should be (2)
+    stack.pop() should be (1)
+  }
+
+...
+
+----
+
+By enriching the type _String_ the ScalaTest library defines the methods
+_should_ and _in_ on this data type. This advanced technique of enriching types with custom methods is the basis of creating powerful DSLs.
+
+What this means is that a library author, without changing the language compiler itself, can add custom behavior to Scala's syntax, and the ScalaTest library authors just did this in a very clever way.
+
+As users of the library we don't have to think too much about this, we can just profit from this fact and work with tests which read themselves much like prose.
+
+If you look at the example, without knowing Scala, you get an idea what is going on. footnote:[This is what a DSL is for - hide complexity, concentrate on the problem at hand.] A datatype called _Stack_ (which contains values of type _Int_) is described, with its methods _push_ and _pop_. The latter are closely related to each other. By looking at the _specification_ you can derive the behavior of the implementation, thus the _Specification_ also serves as a _documentation_ of the functionality.
 

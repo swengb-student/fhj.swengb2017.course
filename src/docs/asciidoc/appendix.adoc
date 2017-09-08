@@ -34,3 +34,7 @@ Integrated Development Environment: the application used to create source code, 
 
 TDD::
 Test driven development: write tests during development.
+
+[#DSL]
+DSL::
+Domain specific language: a language tailored for describing a limited, well defined scope. By reducing the vocabulary to the bare minimum and introducing specific syntax and semantics, it is very efficient to express problems in that language. Without noticing, you use DSL's on a daily basis.
