@@ -49,4 +49,3 @@ include::{docdir}/scala-basics/controlstructures.adoc[]
 
 include::{docdir}/scala-basics/functions.adoc[]
 
-

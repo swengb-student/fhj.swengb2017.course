@@ -135,14 +135,11 @@ Chat systems are used frequently also not to disrupt software developers from th
 
 === Social media
 
-image::social-media.png[Social media,500,250]
-
-One should not underestimate the impact of social media for programming. Like in any other field of work, also in software engineering there are certain things which come and go, something is hot today and is out of fashion tomorrow. 
+One should not underestimate the impact of social media for programming. Like in any other field of work, also in software engineering there are certain things which come and go, something is hot today and is out of fashion tomorrow.
 
 Influencer like known in the youtube generation existed already decades ago in the computer industry. 
 
 Used in the right way, social media can be very helpful in gathering a professional network which can help in certain situations. New trends, techniques and views are likely to find first in social media. 
 
 Lastly, social media is also important to distribute own work and to connect to interesting people. Used in the right way, social media can be very important for your career as software engineer.
-
 

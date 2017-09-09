@@ -1,0 +1,17 @@
+== Functional programming
+
+=== ScalaZ
+
+All advanced libraries use Scalas flexibility to add value to the ecosystems for their users.
+
+You can go very far with it. There exists for example a library called _https://github.com/scalaz/scalaz[ScalaZ]_, which allows writing very concise and at the same time fast and correct code, but for the innocent beginner the code is unreadable. Still, the reason for this is primarily that _ScalaZ_ uses advanced data structures and you have to know a thing or two about functional programming in order to profit from it.
+
+Here is a code snippet:
+
+.A code snippet using ScalaZ
+[source, scala]
+----
+
+----
+
+

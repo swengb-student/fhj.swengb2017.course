@@ -38,3 +38,9 @@ Test driven development: write tests during development.
 [#DSL]
 DSL::
 Domain specific language: a language tailored for describing a limited, well defined scope. By reducing the vocabulary to the bare minimum and introducing specific syntax and semantics, it is very efficient to express problems in that language. Without noticing, you use DSL's on a daily basis.
+
+Java Development Environment (JDK)::
+Necessary tools (compilers, libraries) to develop JVM based applications. A runtime environment is included as well. Necessary to develop Java or other JVM based applications.
+
+Java Runtime Environment (JRE)::
+Necessary software in order to run JVM based applications.
