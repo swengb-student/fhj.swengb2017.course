@@ -14,7 +14,7 @@ In Scala, you have following basic types:
 
 All types which can be constructed use those basic types in some form. One could say that those types are always available, in every programming language, either built in or emulated of some sort. Don't think too much about them.
 
-The type which is used very often is the type _String_, here are some examples how to use it:
+A type which is used very often is type _String_, here are some examples how to use it:
 
 [source,scala]
 ----
@@ -37,13 +37,11 @@ Scala supports a handy "in place replacement" of variables by prepending the str
 
 _In scope_ means that the value is defined and visible at this point of the program.
 
-Another interesting property of Scala's string handling routines is the multiline example. In the above example, you can see that the string definition uses three '"' characters to denote a multiline string.
+Another interesting property of Scala's string handling routines is the multiline example. In the exampleabove, you can see that the string definition uses three '"' characters to denote a multiline string.
 
-The '|' at the beginning of the string denotes the 'left side' of the screen, which is stripped away by the _stripMargin_ method.
+'|' at the beginning of the string denotes 'left side' of the screen, which is stripped away by the _stripMargin_ method.
 
-Ok, thats quite much information; like what is going on here? Why can we call a method on a _String_? (We are talking about the _stripMargin_ method ;-) ) 
-
-In Scala, you can enrich types with your own methods, without having access to those types. Like that the Scala standard library has enriched the _String_ class with certain handy methods. The neat thing is that this is done in a library, and is not baked in in the Scala language itself which is a big difference to other languages.
+Wait a minute, why can we call a method on a _String_? (We are talking about the _stripMargin_ method)  In Scala, you can enrich types with your own methods, without having access to those types. Like that Scala standard library has enriched the _String_ class with certain handy methods. The neat thing is that this is done in a library, and is not baked in in the Scala language itself which is a big difference to other languages.
 
 This means that just by changing a library, which is written in Scala, one can enrich the user experience of a consumer of this library. This is also a reason why _Scala_ got its name - it allows growing a rich ecosystem by exploiting simple but powerful concepts.
 
@@ -51,7 +49,7 @@ This means that just by changing a library, which is written in Scala, one can e
 
 This concept of 'is implemented in a library' applies to almost everything in the Scala language. For example, operators like _+_ or _-_ are implemented in a library as well, as methods on the corresponding type. 
 
-This is a glimpse on the power and expressiveness Scala has to offer as an ecosystem, but we will stop here. The takeaway is that you can write expressions like the following, just as you would expect:
+This is a glimpse of the power and expressiveness Scala has to offer as an ecosystem, but we will stop here. The takeaway is that you can write expressions like the following, just as you would expect:
 
 [source,scala]
 ----

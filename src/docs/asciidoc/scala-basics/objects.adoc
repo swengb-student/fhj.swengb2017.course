@@ -2,7 +2,7 @@
 
 ==== Standalone Objects
 
-In Scala, one can define objects which follow the https://en.wikipedia.org/wiki/Singleton_pattern[singleton pattern] very easily.
+In Scala, one can define very easily objects which implement the https://en.wikipedia.org/wiki/Singleton_pattern[singleton pattern].
 
 [source,scala]
 ----
@@ -19,7 +19,7 @@ If you need a namespace without much fuzz, you can define an _object_ and have s
 
 ==== Companion Objects
 
-Bear in mind that you can define a _class_ and an _object_ with the same name. If this is the case, we speak about so called _companion objects_. Companion objects and its accompanying class must reside in the same file. The class is then called _companion class_. 
+Bear in mind that you can define a _class_ and an _object_ which share the  same name. If this is the case, we speak about so called _companion objects_. Companion objects and its accompanying class must reside in the same file. This class is then called _companion class_.
 
 [source,scala]
 ----

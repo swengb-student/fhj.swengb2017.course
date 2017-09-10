@@ -23,11 +23,11 @@ This list could be arbitarily prolongated, we'll stop with those mentioned above
 
 === Continuous Integration
 
-Continuous Integration (CI ) means that the work of single developers of an organisation are unified and merged into a single repository in a periodic manner. The integration involves compiling the code, executing automated tests and the building of artefacts ready to be used by an end user. 
+Continuous Integration (CI) means that all code contributions of an organisation are unified and merged into a single repository in a periodic manner. Integration involves compiling code, executing automated tests and building of artifacts ready to be used by an end user.
 
-CI improves the "time to market" factor when creating software, and generally helps in improving the quality of the generated artefacts. However, it can also slow down the delivery of certain parts of the software, since every commit has to fulfill at least a common denominator with the rest of the code (the lowest would be that the compilation of the software is still functional). CI will execute automated tests, which serve as a metric of 'correctness'. To quickly evaluate if everything is ok a certain amount of reporting of the results of the compilation of all software parts as well as the results of the executed tests has to be in place. If you want to have fast turnaround times and a high productivity in the software engineering department, it is also vital that the compilation of the program artefacts is fast, the construction of the deployment artifacts is automated and that your tests can be executed concurrently and without interference between each other. 
+CI improves the "time to market" factor when creating software, and generally helps in improving quality of generated artifacts. However, it can also slow down delivery time of certain parts of software. Every commit has to fulfill at least a common denominator, a common set of rules, to stay aligned with existing code (it should compile at minimum for example). CI will execute automated tests, which serve as a metric of 'correctness'. To quickly evaluate if everything is ok a certain amount of reporting compilation results of all software parts as well as tests results has to be in place. If you want to have fast turnaround times and a high productivity in the software engineering department, it is also vital that program compilation is fast, deployment artifact construction is automated and that your tests can be executed concurrently and without interference between each other.
 
-A discipline which builds on CI is 'Continuous delivery', which means that software artefacts are served to the actual user. That means that a change in the software has an instant effect on the users. If you think about this, you will certainly agree that this imposes great demands on the systems in respect to quality and robustness and thus the goal of real continuous delivery is reached by just a few in the industry. In our so called 'internet time' and in some domains however this approach is vital for the success of a business and as such one corner stone of the success of real 'high tech' companies.
+A discipline which builds on CI is 'Continuous delivery', which means that software artifacts are served to the actual user. That means that a change in software source code has an instant effect on endusers. If you think about this, you will certainly agree that this imposes great demands on the infrastructure in respect to quality and robustness. As such, complete automation is an ambitious goal and is reached truley just by a few in our industry. In our so called 'internet time' and in some domains however this approach is vital for the success of a business and as such one corner stone of successful 'high tech' companies.
 
 === Version Control Systems
 
@@ -65,7 +65,7 @@ Build Systems help to assemble software components and interact with VCS and RMS
 
 Every day a massive amount of new software is written, existing software is changed and old one is being wiped out if it is not used anymore. In this constant flow of change there has to be a certain set of rules which define how software components are being built, how they are assembled together, and how they are properly configured. This is the task of the build system.
 
-A build system can make a dramatic difference in the productivity of a company, and a good build system is vital for being competitive in todays ever changing software world.
+A build system can make a dramatic difference in raw productivity of a company, and a good build system is vital for being competitive in todays ever changing software world.
 
 See following table for some examples of build systems:
 
@@ -78,7 +78,7 @@ See following table for some examples of build systems:
 
 |ANT
 |JVM
-|One of the first build tools on the JVM
+|One of JVM's first build tool
 
 |Maven
 |JVM
@@ -86,7 +86,7 @@ See following table for some examples of build systems:
 
 |Gradle
 |JVM
-|Some see it as the successor of Maven, currently build tool for Android. Not as XML heavy as Maven, powerful DSL
+|Some see it as Mavens successor, currently it is the standard build tool for Android. Not as XML heavy as Maven, it has a powerful DSL.
 
 |Leiningen
 |JVM
@@ -119,7 +119,7 @@ See following table for some examples of build systems:
 
 |===
 
-This list is not exhaustive of course. The field of build management is highly dynamic and specialized. It is common that companies write their own infrastructure, some of them open it to the world.
+This list is of course not exhaustive. Build management is highly dynamic and specialized. It is common that companies write their own infrastructure, some of them open it to the world.
 
 Anyway, most of the cited list are JVM based build systems, but for other technolgies there exist such concepts as well.
   

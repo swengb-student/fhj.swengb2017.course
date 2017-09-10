@@ -61,13 +61,13 @@ Since _draw_ is defined as an abstract method (this means that the implementatio
 
 This is a common usecase for traits.
 
-With the definitions above, you gain something very valuable: you can create an _API_ which only knows about _Drawable_ traits, and not about the special forms of this concept which are implemented in _Circle_ or _Rectangle_. 
+With definitions above, you gain something very valuable: you can create an _API_ which only knows about _Drawable_ traits, and not about special forms of this concept which are implemented in _Circle_ or _Rectangle_.
 
 Like this one can design an API at a certain point in time, without knowing all possible implementations which are maybe written for some future requirement. This is a very important programming trick and should be well remembered.
 
 Typically, _classes_ extend _traits_. But _traits_ are not confined to that. A _trait_ can also extend other _traits_. _Objects_ can also extend _traits_. It is even possible to extend more than one _trait_. 
 
-See the examples below:
+See examples below:
 
 [source,scala]
 ----
