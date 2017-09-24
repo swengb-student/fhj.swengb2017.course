@@ -20,6 +20,10 @@ include::{docdir}/softwareengineering.adoc[]
 include::{docdir}/toolings.adoc[]
 
 <<<
+include::{docdir}/licenses.adoc[]
+
+
+<<<
 include::{docdir}/testing/testing.adoc[]
 
 <<<

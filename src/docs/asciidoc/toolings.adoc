@@ -67,7 +67,7 @@ Every day a massive amount of new software is written, existing software is chan
 
 A build system can make a dramatic difference in raw productivity of a company, and a good build system is vital for being competitive in todays ever changing software world.
 
-See following table for some examples of build systems:
+See following table for some examples of build systems (and related, package managers):
 
 [cols="1,1,4", options="header"]
 .Build Systems
@@ -92,9 +92,21 @@ See following table for some examples of build systems:
 |JVM
 |Build tool for Clojure.
 
+|NPM
+|Javascript
+|a package manager for javascript
+
+|yarn
+|Javascript
+|a build tool for javascript (from facebook)
+
 |SBT
 |JVM
 |Build tool for Scala ("Simple Build Tool")
+
+|Rake
+|Ruby
+|Build tool for Ruby
 
 |Pants
 |JVM

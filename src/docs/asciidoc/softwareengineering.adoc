@@ -45,7 +45,7 @@ Creating software means experimenting, programming means learning on the go. One
 
 Naturally, the probability of failure decreases if similar projects are done over and over again. On the other hand you have to consider that doing the same thing over and over again does not really pay well, since it can be automated, and this can and will be done by your competitors. 
 
-The definition of a successful software project is not as easy as it would seem - it is common that the requirements change over time, the whole focus of a project can change since all participants learn during the process of development.
+The definition of a successful software project is not as easy as it might seem - it is common that the requirements change over time, the whole focus of a project can change since all participants learn during the process of development.
 
 Software projects are very expensive, since they are hugely dependent on human, manual work. Some parts can be automated, typically only trivial tasks. The industry awaits eagerly a break through in artificial intelligence which makes currently unthinkable automation possible - but as things are today this is still just science fiction.
 
@@ -57,7 +57,7 @@ Either way, it is very hard to predict - if not impossible - how things will dev
 
 Some say this is due to the fact that software engineering still lacks in defined formalisms for developing the artefacts which a customer pays for. 
 
-Unlike other engineering fields like in the construction industry there are no or only very few rules which always apply. A counterexample would be the field of mathematics - in a purely mathematical domain it is very easy to measure a failure or a success, since it can be exactly pinpointed. In the domain of software development, this is not as easy.
+Unlike other engineering fields like in the construction industry there are no or only very few rules which always apply. A counterexample would be the field of mathematics - in a purely mathematical domain it is very easy to measure a failure or a success, since it can be exactly pinpointed. In the domain of software development, this is not that easy.
  
  Software engineering is also a very young discipline, compared which other engineering disciplines which have a long history. Those cited fields of work all had their problems establishing a common ground, a common set of rules which make the difference between a working approach and a failed experiment. 
 
@@ -71,5 +71,5 @@ The more important goal is transformation, creating software that changes the wo
 
 There is also a saying by Confucius which is used fairly often: 'A journey of a thousand miles begins with a single step.'. This maps nicely to the way software is developed.
 
-Those viewpoints cited above just underline that software engineering is a complicated domain and it takes years of practice to really be a proficient software developer.
+Those viewpoints cited above just underline that software engineering is a complicated domain and it takes years of practice to be a proficient software developer.
 

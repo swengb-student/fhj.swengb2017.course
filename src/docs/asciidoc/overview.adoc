@@ -6,7 +6,7 @@ This course helps undergraduate students to learn about basic principles of prog
 
 The implementation language is Scala, which lends itself well for various styles of programming. The students will make use of modern development environments and toolings and learn how to organize small software projects. 
 
-One emphasis of the course is how to write tests. 
+One emphasis of the course is how to write tests.
 
 Furthermore, the course will cover several case studies to demonstrate various aspects of software development.
 
@@ -16,6 +16,7 @@ The course contains following subjects:
 
 - <<sw-engineering>> : Definition, Discussion about Methodologies. Are we in a software crisis?
 - <<toolings>> : Continuous Integration Server, Build Tools, Ticket Systems, Documentation Systems
+- <<licenses>> : Open source licenses
 - <<scala-basics>> : An introduction into the Scala programming language
 - <<testing>> : What is the purpose of testing?
 - Selected case studies to compare functional and imperative programming
@@ -29,7 +30,7 @@ The course consists of lectures and labs. The latter serve for practicing the th
 
 === Grading
 
-The course will have several homework assignments which will contribute to the overall score of the course. At the end of the course there will be a team project and a final (written) exam.
+We will have several homework assignments which will contribute to the overall score of the course. At the end of the course there will be a team project and a final (written) exam.
 
  
 

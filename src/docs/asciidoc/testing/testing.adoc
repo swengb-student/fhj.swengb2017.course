@@ -4,7 +4,7 @@
 [quote, Bertrand Meyer]
 Testing a program to assess its quality is, in theory, akin to sticking pins into a doll—very small pins, very large doll.
 
-Writing software is a creative process. In fact, writing software is one of the few activities which are very well paid where thoughts literally materialize to artifacts which provide some value to somebody.
+Writing software is a creative process. Thoughts materialize to artifacts which provide some value to somebody.
 
 If one overcomes the first hurdles of learning the basics of software development, programming, communication and tooling, one will experience an enormous joy in writing software. More sooner than later one will also discover that software can be a beast which is sometimes very hard to tame.
 
@@ -70,13 +70,13 @@ A synonym in the JVM world for unit tests is 'JUnit'. In fact, this library has 
 
 Anyway, the 'JUnit' library supports all traits mentioned above, like providing means for setting up an isolated environment for testing a software chunk, deallocating resources afterwards, executing tests in parallel, embedding test execution in a continuous integration environment and so on. footnoteref:[It is pretty standard to use JUnit on the JVM, however we will use ScalaTest, another unit testing library, which is very common when programming in Scala. It supports JUnit style tests as well as a number of other testing approaches.]
 
-A critique on unit tests is that they slow down development significantly. This is true, and one has to keep attention to the quality of the unit tests as well. Tests tend to be written in a 'fire and forget' style; at the time of writing a test there is always not enough time to do it properly. One has to constantly remind oneself that the quality of a test matters - at least the same amount than the quality of the production code, if not more.
+A critique on unit tests is that they slow down development significantly. This is true, and one has to keep attention to the quality of unit tests as well. Tests tend to be written in a 'fire and forget' style. One has to constantly remind oneself that quality of a test matters - at least it should be written with the same amount of care and dedication like the production code, if not more.
 
-The reason is apparent when tests are failing: the better a test was written, the higher the quality of a test, the easier it is to see what is going on and what needs to be changed in order to get to passing tests again. If the test was not properly written, it can be a challenge to reengineer the original intention of the test, which unfortunately often leads to a reimplementation of the test.
+The investment in your tests, their documentation, structure and design pays off as soon as the first test is failing: If it was written cautiously and with foresight, it is easy to spot the problem. It is easy to see what is going on. What is needed to change is clear and easy to fix.
 
-The maintenance burden of unit tests is not to be underestimated.
+If your tests however are written in a poor way, you will spend a lot of time debugging your code, not remembering what was the implementations original intention. It will be a major undertaking to get tests passing again. Often, during this process, one tends to rewrite the test again, just to understand what was going on.
 
-NOTE: Choose wisely which tests you write.
+NOTE: Choose wisely which tests you write, don't underestimate the maintenance burden of poorly written unit or component tests.
 
 See also <<test-coverage, the chapter about test coverage>> for a discussion about the 'right amount of unit tests'.
 
@@ -87,11 +87,14 @@ Component tests glue the aforementioned software chunks together to more complex
 
 Those components have to be tested as well, that means the interaction between different layers of software has to be verified.
 
-However, in essence the same techniques like with unit testing are used in this domain as well, from the point of view of the developer not much changes.
+Here, similar techniques can be applied. In fact one can apply the same approach for writing component tests than for writing unit tests. There is not much difference. Maybe they are harder to implement since component tests need more setup. Component tests typically need an environment to run in, which may not be easy to provide or simulate.
 
-The biggest difference is that the tests run longer. If done right, the observable behavior of software components is defined more rigidly, the interfaces are more stable than within smaller software units.footnote:[think of 'implementation details']
+If component testing (or unit testing for that matter) is strictly applied, the observable behavior of software components increases. Interfaces get defined more clearly. Typically, components themselves are broken down into smaller parts during the process of testing. Components become  smaller in size and thus reach a better quality. Interfaces improve and reach a better stability.
 
-That means that component tests, if properly written, change slower than unit tests.
+Writing component tests often involves simulating certain parts of the system. This technique is called 'Mocking'. Again, there exist libraries for simulating behavior. 'Mocking' means to simulate API calls or to measure if some call was performed when using an interface. A disadvantage of mocking is however that it is mirroring the implementation and thus very brittle and cumbersome to maintain.
+
+A rule of thumb is that a well thought software system is easy to test, and also easy to simulate. That doesn't mean that it is not hard work to do so. Writing good tests, no matter if they are called unit or component tests, is a great challenge and often more creative work than writing the implementation itself.
+
 
 === Performance Tests
 
@@ -102,26 +105,24 @@ Still, performance tests also demand that the software is executed under compara
 [#test-coverage]
 === Test coverage
 
-Line test coverage reports tell you which lines of code were executed by your tests. Line coverage reports are very easy to understand (a line was hit by a test or not) and of great help to write the tests themselves. In modern IDE's such line test coverage reports are already included (as well as the ability to execute tests themselves). Like this it is easy to see which parts of a class for example are still untested and which one is already hit once by a test.
+Line test coverage reports tell you which lines of code were executed by your tests. Line coverage reports are very easy to understand (a line was hit by a test or not) and of great help to write tests themselves. In modern IDE's such line test coverage reports are already included (as well as the ability to execute tests inline). Like this it is easy to see which parts of a class for example are still untested and which one is already hit once by a test.
 
-Hitting in this context means that a conceptualized program counter passes by this line and uses the line for executing. Such line coverage reports can also be used to detect dead code, relative to a usecase and can be useful in this respect as well.
+'Hitting' in this context means that a conceptualized program counter passes by this line and uses the line for executing. Such line coverage reports can also be used to detect dead code, relative to a usecase and can be useful in this respect as well.
 
-The following figure gives you an example of a line test coverage report.
+Following figure gives you an example of a line test coverage report.
 
 .Example test line coverage report
 image::test-line-coverage.png[Example test line coverage report,744,514]
 <<<
 
-Another form of a test coverage report is to summarize code by certain criterias, for example to group the code by files, packages, modules or directories. It depends on the language which criteria fits best and is the most practical way to structure the code.
-
-This gives you also an idea which parts of the system need more attention.
+Another form of a test coverage report is to summarize code by certain criterias. An example for such an criteria is to group code by files, by packages or modules. Of course it depends in which environment (programming language, library, framework ... ) a system is written. A test coverage report will give you insights which parts of the system need more attention.
 
 .Example test coverage report
 image::test-coverage-example.png[Example test coverage report, 1357,453]
 
 NOTE: even with 100% coverage, bugs still can exist in the code.
 
-100% coverage is also very hard to reach, and in most cases just not necessary. The best ratio for test coverage should be decided individually. Usually, however, the ratio is too low and time is well spend writing some tests.
+100% coverage is also very hard to reach, and in most cases just not necessary. The best ratio for test coverage should be decided individually. Typically though a test coverage report will say that there is not enough test coverage and it is time for writing tests.
 
 NOTE: Creating the infrastructure to perform performance tests or coverage reports is not a negligible effort. Such reports however are a waste of time and resources if they are not constantly monitored and actions and reactions are derived from interpreting those reports.
 
