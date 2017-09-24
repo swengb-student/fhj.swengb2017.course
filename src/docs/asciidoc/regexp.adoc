@@ -1,0 +1,101 @@
+[#regexp]
+== Regular Expressions
+
+Regular expressions are a sequence of characters which basically define a search pattern. Regular expressions (often used synonyms: 'regex' or 'regexpr') are widely used in unix tools, text editors and in programming tasks as well.
+
+Regular expressions formalize a language to search for certain patterns in a text. An example for such a pattern, defined in prose,  would be:
+
+ At least two spaces are matched, but only if they occur directly after a period (.) and before an upper case letter.
+
+The statement above translated to a regular expression would be:
+
+ (?<=\.) {2,}(?=[A-Z])
+
+Without context, those letters above make no sense - hopefully after reading through this chapter you can make your own regular expressions. In fact, in a normal work setting for the average programmer, it is highly unlikely that a day passes without using regular expressions in some form.
+
+Regexps are a powerful tool, and mastering them makes a difference. However, one can profit from them by using only subsets of their possibilities as well, and we will stick to simple, but easy to remember rules. After mastering those rules, one can dive in deeper into this topic.
+
+To begin with, a regexp consists of a sequence of characters, some of which have a special meaning.
+
+Here are some examples for regular expressions:
+
+ a
+
+ b.
+
+ c$
+
+ ^d
+
+ 1?
+
+ asdf.
+
+ (?<=\.) {2,}(?=[A-Z])
+
+
+To unlock the secrets of regular expressions, one has to know that there are _regular characters_ and _meta characters_ which have special meaning. In the above examples, the characters
+
+ ? . ^
+
+for example are _meta_ characters.
+
+Let's examine
+
+ b.
+
+more closely: it means that the regular expression defines a search pattern which _matches_ against strings starting with 'b' followed by any character ('.') except newline.
+
+That means that the regexp above matches against strings like 'bx','b2', 'b§' but not against a string like 'Bd', 'ab' or '12'.
+
+What now follows is a (non exhaustive) list of regular expression 'operators' which are useful for constructing regular expressions.
+
+[cols="1,4"]
+.Regular expression operators
+|===
+| Operator
+| Description
+
+| .
+| matches all characters
+
+| ^
+| matches the beginning of a line
+
+| $
+| mathes the end of a line
+
+| *
+| matches preceeding pattern between zero and unlimited times
+
+| ?
+| any character (only one)
+
+| +
+| one or more occurences
+
+| [a-z]
+| a character class, matching all characters in this range
+
+| [abc]
+| matches either a,b, or c
+
+| \|
+| defines an alternative expression, like in "_grey \| gray_" which matches either _grey_ or _gray_.
+
+| {n}
+| a quantifier, matches preceeding pattern _n_ times
+
+| {min,}
+| preceeding pattern is matched _min_ or more times
+
+| {min,max}
+| preceeding pattern is matched at least _min_ times, but not more than _max_ times
+
+|===
+
+Regular expression operators like above can be combined in arbitary ways.
+
+Those rules suffice for many usecases. We will stop our discussion about regular expressions here.
+
+For a more in depth look, visit https://github.com/zeeshanu/learn-regex. Another useful resource is https://regex101.com which provides an interactive regular expression playground. By experimenting with this online tool, you get up to speed with regular expressions in a fast and entertaining way.

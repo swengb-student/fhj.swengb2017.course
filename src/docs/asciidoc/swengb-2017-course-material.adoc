@@ -22,6 +22,9 @@ include::{docdir}/toolings.adoc[]
 <<<
 include::{docdir}/licenses.adoc[]
 
+<<<
+include::{docdir}/regexp.adoc[]
+
 
 <<<
 include::{docdir}/testing/testing.adoc[]
