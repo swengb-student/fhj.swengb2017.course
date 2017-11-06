@@ -2,26 +2,41 @@ import sbt._
 import Dependencies._
 import BuildConstants._
 
+// ------------------------------------------------------
+// main project
 lazy val course = (project in file(".")).
   settings(
     organization := org,
     scalaVersion := scalaVer,
     version := buildVer,
-    name := "swengb-course",
+    name := "course",
     libraryDependencies += scalaTest
   )
 
 // ------------------------------------------------------
-// lab 01
-
-lazy val lab01_helloworld = (project in file("labs/lab01/helloworld/")).
- settings(
+// common
+lazy val common = (project in file("common/")).
+  settings(
     organization := org,
     scalaVersion := scalaVer,
     version := buildVer,
-    name := "lab01-helloworld",
+    name := "common",
     libraryDependencies += scalaTest,
     fork := true
   )
 
-// END lab01 ----------------------------------------------
+
+// ------------------------------------------------------
+// labs
+
+lazy val labs = (project in file("labs/")).
+ settings(
+    organization := org,
+    scalaVersion := scalaVer,
+    version := buildVer,
+    name := "labs",
+    libraryDependencies += scalaTest,
+    fork := true
+  ).dependsOn(common)
+
+// END labs ----------------------------------------------
